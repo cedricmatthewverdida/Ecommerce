@@ -53,9 +53,9 @@ export default {
     }
   },
 
-  privateRuntimeConfig: {
+  env: {
     serverURL: process.env.SERVER_URL || 'https://7oebgpnp43rq.usemoralis.com:2053/server',
-    appId: process.env.APP_ID || '36YXbnPgUbRpv3AeiFOlMPVGum3bZQekBJbKLi6H'
+    appID: process.env.APP_ID || '36YXbnPgUbRpv3AeiFOlMPVGum3bZQekBJbKLi6H'
   }
 
   
