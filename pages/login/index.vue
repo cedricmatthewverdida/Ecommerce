@@ -56,8 +56,13 @@ export default Vue.extend({
             'loginEmailAuth'
         ]),
 
-        login(){
-            this.loginEmailAuth(this.credential);
+        async login(){
+            const login:{ title: string, message: string ,status: string} = await this.loginEmailAuth(this.credential);
+            this.$notify({
+                title: login.title,
+                text: login.message,
+                type: login.status ? 'success' : 'error',
+            });
         }
     }
 })

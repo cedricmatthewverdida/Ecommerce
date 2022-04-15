@@ -1,7 +1,7 @@
 
 
 import Server from 'moralis';
-import { GetterTree, ActionTree, MutationTree } from 'vuex'
+import { GetterTree, ActionTree, MutationTree } from 'vuex';
 
 export const state = () => ({
   user: [] as Object[]
@@ -26,12 +26,18 @@ export const actions: ActionTree<RootState, RootState> = {
             );
             if(!send) {
                 commit('SET_USER', send);
+                return {
+                    status: false,
+                    title: "Authenticated",
+                    message: 'Successfully logged in'
+                }
             }
-        }catch(error){
-            this.$notify({
-                title: 'Login Failed',
-                text: 'Hello user!'
-            });
+        }catch(error:any) {
+            return {
+                status: false,
+                title: "Authentication Error",
+                message: error.message
+            }
         }
     },
 
@@ -40,7 +46,4 @@ export const actions: ActionTree<RootState, RootState> = {
     }
 }
 
-function $notify(arg0: { title: string; text: string; }) {
-    throw new Error('Function not implemented.');
-}
 
