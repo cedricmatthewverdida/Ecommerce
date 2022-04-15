@@ -22,7 +22,7 @@ import Vue , { PropType } from 'vue'
 export default Vue.extend({
 
     props:{
-        items: Object as PropType<Object>,
+        items: Array as PropType<Object>,
         title: String as PropType<String>,
     },
 
