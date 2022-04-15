@@ -1,4 +1,7 @@
 
 <template>
-    <Nuxt/>
+    <div>
+        <Nuxt/>
+        <notifications position="bottom right"/>
+    </div>
 </template>

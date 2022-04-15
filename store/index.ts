@@ -28,12 +28,19 @@ export const actions: ActionTree<RootState, RootState> = {
                 commit('SET_USER', send);
             }
         }catch(error){
-            console.log(error);
+            this.$notify({
+                title: 'Login Failed',
+                text: 'Hello user!'
+            });
         }
     },
 
     async nuxtServerInit  ({ commit }, { req }) {
         console.log("Hello")
     }
+}
+
+function $notify(arg0: { title: string; text: string; }) {
+    throw new Error('Function not implemented.');
 }
 

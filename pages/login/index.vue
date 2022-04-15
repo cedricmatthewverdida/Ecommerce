@@ -4,6 +4,7 @@
             <figure><img src="https://api.lorem.space/image/album?w=400&h=400" alt="Album"></figure>
             <div class="card-body">
                 <h2 class="card-title">Connect with Sam's Store</h2>
+
                 <Input
                     :option="{
                         label: 'Email / Username',
