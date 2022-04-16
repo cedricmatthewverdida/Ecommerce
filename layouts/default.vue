@@ -1,8 +1,10 @@
 <template>
       <div class="flex flex-col h-screen justify-between">
             <TheHeader/>
-            <Nuxt class="my-10"/>
-            <notifications position="bottom right"/>
+            <Nuxt/>
+            <client-only>
+                  <notifications position="bottom right"/>
+            </client-only>
             <TheFooter/>
       </div>
 </template>

@@ -23,8 +23,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/moralis.client.js',
-    { src: '~/plugins/notifications-client.ts', ssr: false }
+    { src: '~/plugins/moralis-client', ssr: false },
+    { src: '~/plugins/notifications-client', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -54,6 +54,7 @@ export default {
   },
 
   env: {
+    siteTitle: process.env.SITE_TITLE || 'Sammy Store',
     serverURL: process.env.SERVER_URL || 'https://7oebgpnp43rq.usemoralis.com:2053/server',
     appID: process.env.APP_ID || '36YXbnPgUbRpv3AeiFOlMPVGum3bZQekBJbKLi6H'
   }

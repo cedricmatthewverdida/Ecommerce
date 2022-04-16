@@ -1,7 +1,9 @@
 <template>
     <div class="hero min-h-screen bg-base-200">
         <div class="card lg:card-side bg-base-100 shadow-xl">
-            <figure><img src="https://api.lorem.space/image/album?w=400&h=400" alt="Album"></figure>
+            <figure>
+                <img src="https://api.lorem.space/image/album?w=400&h=400" alt="Album">
+            </figure>
             <div class="card-body">
                 <h2 class="card-title">Connect with Sam's Store</h2>
 
@@ -38,6 +40,9 @@ import Vue from 'vue';
 import Input from '@/components/Input/TextField.vue';
 import { mapActions } from 'vuex';
 export default Vue.extend({
+    
+    middleware: 'authenticated',
+
     components:{
         Input
     },
@@ -53,11 +58,18 @@ export default Vue.extend({
     methods: {
 
         ...mapActions([
-            'loginEmailAuth'
+            'loginEmailAuth',
+            'registerEmailAuth'
         ]),
 
         async login(){
-            const login:{ title: string, message: string ,status: string} = await this.loginEmailAuth(this.credential);
+
+            const login:{
+                title: string,
+                message: string ,
+                status: string
+            } = await this.loginEmailAuth(this.credential);
+
             this.$notify({
                 title: login.title,
                 text: login.message,
