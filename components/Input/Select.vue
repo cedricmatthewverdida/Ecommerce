@@ -37,19 +37,25 @@ export default Vue.extend({
 
     methods:{
         toDisplay: function (item:any): string {
-            return _.get(item,this.display)
+            if(this.display != undefined){
+                return _.get(item,this.display);
+            }
+            return item;
         }
     },
 
     computed:{
         input: {
-
             get () {
                 return this.value;
             },
 
             set (value:String) {
-                this.$emit('input', value)
+                if(this.value != ''){
+                    this.$emit('input',value);
+                }else{
+                    this.$emit('input', this.title);
+                }
             }
         }
     }

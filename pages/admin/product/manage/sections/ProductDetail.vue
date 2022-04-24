@@ -1,6 +1,5 @@
 <template>
     <div>
-        {{category}}
         <Card
             title='Image, Video, Audio, or 3D Model'
             subtitle= 'File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV, OGG, GLB, GLTF. Max size: 100 MB'
@@ -37,7 +36,7 @@
                 placeholder='Enter your product name'
                 type='text'
                 styles='form-control inputContainer'
-                v-model="name"
+                v-model="productnameData"
             />
         </Card>
 
@@ -65,14 +64,7 @@ export default Vue.extend({
         ImageUpload,
         Card,
         Input,
-        Select
-    },
-    data(){
-        return {
-            name: '' as string,
-            description: '' as string,
-            quantity: 0,
-        }
+        Select,
     },
 
     computed:{
@@ -80,6 +72,8 @@ export default Vue.extend({
         ...mapGetters(
             {
                 category: 'manage/category',
+                productname: 'manage/productname',
+                productdesc: 'manage/productdesc',
                 getCategories: 'ProductCategory/getCategories',
             },
         ),
@@ -91,14 +85,37 @@ export default Vue.extend({
             set (value) {
                 this.setCategory(value);
             }
-        }
+        },
+
+        productnameData: {
+            get () {
+                return this.productname;
+            },
+            set (value) {
+                this.setProductName(value);
+            }
+        },
+
+        productdescData: {
+            get () {
+                return this.productdesc;
+            },
+            set (value) {
+                this.setProductDesc(value);
+            }
+        },
+
+
     },
 
     methods:{
         ...mapActions({
             setCategory: 'manage/setCategory',
+            setProductName: 'manage/setProductName',
+            setProductDesc: 'manage/setProductDesc',
             fetchCategories: 'ProductCategory/fetchCategories',
         }),
+        
     },
 
     

@@ -2,26 +2,24 @@
 <template>
    <div class="container md:mx-auto md:px-10">
 
-       <ul class="steps">
-            <li 
-            v-for="(step, key) in steps" 
-            :key="key" 
-            :class=" currentStep >= key ? 'step step-primary' : 'step ' "
-            >
-                {{step}}
-            </li>
-        </ul>
+       
 
         <Card
-            :title='"Product " + stepIndicator'
-            subtitle= 'File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV, OGG, GLB, GLTF. Max size: 100 MB'
             styles='my-3 shadow-xl'
         >
-            
-            <ProductDetail/>
+            <ul class="steps">
+                <li 
+                v-for="(step, key) in steps" 
+                :key="key" 
+                :class=" currentStep >= key ? 'step step-primary' : 'step ' "
+                >
+                    {{step}}
+                </li>
+            </ul>
+
+            <ProductDetail v-if="currentStep == 0"/>
 
             <div slot="footer">
-                {{currentStep}}
                 <button class="btn btn-primary" @click="nextStep">Next</button>
                 <button class="btn btn-primary" @click="previousStep">Previous</button>
             </div>
