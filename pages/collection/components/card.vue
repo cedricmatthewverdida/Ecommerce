@@ -1,7 +1,7 @@
 <template>
     <div class="card w-96 bg-base-100 rounded-xl shadow hover:shadow-lg">
     
-        <figure class="px-10 pt-10">
+        <figure class="px-10 py-5">
             <div class="indicator ml-2">
             <span v-if="isSale(item)" class="indicator-item indicator-top indicator-start badge badge-error">
                 {{item.sale.percent }}% off
@@ -9,7 +9,7 @@
                 <img 
                     :src="item.image" 
                     :alt="item.name"
-                    class="rounded-xl"
+                    class="rounded-xl hover:scale-150"
                 />
             </div>
             
@@ -50,26 +50,34 @@
                     </svg>
                     </label>
                 </div>
-                
-                <div class="w-32">
-                    <div class="avatar-group -space-x-6">
-                        <div class="avatar">
-                            <div class="w-8">
-                            <img src="https://api.lorem.space/image/face?hash=4818" />
+                <div class="tooltip tooltip-bottom" data-tip="99+ people love this item">
+
+                    <div class="w-32">
+                        <div class="avatar-group -space-x-6">
+                            <div class="avatar">
+                                <div class="w-8">
+                                <img src="https://api.lorem.space/image/face?hash=4818" />
+                                </div>
+                            </div>
+                            <div class="avatar">
+                                <div class="w-8">
+                                <img src="https://api.lorem.space/image/face?hash=40311" />
+                                </div>
+                            </div>
+                            <div class="avatar">
+                                <div class="w-8">
+                                <img src="https://api.lorem.space/image/face?hash=40311" />
+                                </div>
+                            </div>
+                            <div class="avatar placeholder">
+                                <div class="w-8 bg-neutral-focus text-neutral-content">
+                                <span>+99</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="avatar">
-                            <div class="w-8">
-                            <img src="https://api.lorem.space/image/face?hash=40311" />
-                            </div>
-                        </div>
-                        <div class="avatar placeholder">
-                            <div class="w-8 bg-neutral-focus text-neutral-content">
-                            <span>+99</span>
-                            </div>
                         </div>
                     </div>
-                    </div>
+
                 </div>
 
                 <button class="btn btn-ghost" @click="emit('buy')">
@@ -94,11 +102,11 @@ export default Vue.extend({
     },
 
     methods: {
-        emit:function(event:string){
+        emit:function(event:string): void{
             this.$emit(event, this.item);
         },
 
-        isSale:function (obj: {sale: Object}){
+        isSale:function (obj: {sale: Object}): Object{
             return Object.keys(obj.sale).length !== 0;
         }
     },

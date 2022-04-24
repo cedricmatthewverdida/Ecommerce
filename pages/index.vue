@@ -61,13 +61,11 @@
 
 
 <script lang="ts">
-import Vue from 'vue'
-import Carousel from '@/components/Main/Carousel.vue'
-import Card from '../pages/collection/components/card.vue'
+import Vue from 'vue';
+import Carousel from '@/components/Main/Carousel.vue';
 export default Vue.extend({
   components:{
-    Carousel,
-    Card
+    Carousel
   }
 })
 </script>

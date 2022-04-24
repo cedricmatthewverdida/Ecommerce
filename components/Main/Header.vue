@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="navbar-center">
-            <a class="btn btn-ghost normal-case text-xl">Sammy Store</a>
+            <span class="logo-text">Hube Computer</span>
         </div>
         <div class="navbar-end">
             <button class="btn btn-ghost btn-circle">
@@ -28,3 +28,13 @@
         </div>
     </div>
 </template>
+
+
+<style lang="css">
+    @import url('https://fonts.googleapis.com/css?family=Anton|Roboto');
+    .logo-text {
+        font-family: 'Anton', sans-serif;
+        perspective: 1000px;
+        font-size: 30px;
+    }
+</style>

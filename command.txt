@@ -1,0 +1,1 @@
+moralis-admin-cli watch-cloud-folder --moralisApiKey 5IJvZfuvRBbzyBx --moralisApiSecret 6EwoyKEEHFOXBWH --moralisSubdomain 7oebgpnp43rq.usemoralis.com --autoSave 1 --moralisCloudfolder C:\Users\chryh\Desktop\Development\Ecommerce\api

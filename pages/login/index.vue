@@ -41,7 +41,7 @@ import Input from '@/components/Input/TextField.vue';
 import { mapActions } from 'vuex';
 export default Vue.extend({
     
-    middleware: 'authenticated',
+    // middleware: 'authenticated',
 
     components:{
         Input

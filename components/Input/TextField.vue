@@ -1,12 +1,12 @@
 
 <template>
-    <div class="form-control w-full max-w-xs">
+    <div :class="styles">
         <label class="label">
             <span class="label-text">
-                {{ option.label }}
+                {{ label }}
             </span>
         </label>
-        <input v-model="input" :type="option.type" :placeholder="option.placeholder" class="input input-bordered w-full max-w-xs">
+        <input v-model="input" :type="type" :placeholder="placeholder" class="input input-bordered">
     </div>
 </template>
 
@@ -17,17 +17,15 @@ import Vue , { PropType } from 'vue';
 export default Vue.extend({
 
     props:{
-        option: Object as PropType<
-        {
-            label: string,
-            placeholder?: string,
-            type: string,
-        }>,
-        value: String as PropType<any>,
+        value: [String,Number] as PropType<any>,
+        label: String as PropType<string>,
+        placeholder: String as PropType<string>,
+        type: String as PropType<string>,
+        styles: String as PropType<string>,
     },
 
     methods: {
-        emit:function(event:string,value:any){
+        emit:function(event:string,value:any): void{
             this.$emit(event, value);
         },
     },

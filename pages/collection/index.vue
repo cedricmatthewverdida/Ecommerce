@@ -8,7 +8,7 @@
       </div>
       <div class="flex flex-row-reverse ...">
         <Paginated/>
-        <div>
+        <div class="mx-1">
           <Selects :items="category" :title="`${'Pick category'}`"/>
         </div>
       </div>
@@ -22,9 +22,9 @@
     </div>
 
 
-    <div class="flex flex-row-reverse mt-10">
+    <div class="flex flex-row-reverse my-10">
         <Paginated/>
-      <div>
+      <div class="mx-2">
         <Selects :items="category" :title="`${'Pick category'}`"/>
       </div>
     </div>
@@ -35,10 +35,10 @@
 
 <script lang="ts">
 
-import Search from './components/search.vue';
-import Selects from './components/select.vue';
-import Paginated from './components/pagination.vue';
-import Card from './components/card.vue';
+import Search from './components/Search.vue';
+import Selects from './components/Select.vue';
+import Paginated from './components/Pagination.vue';
+import Card from './components/Card.vue';
 export default{
 
   components: {
