@@ -51,13 +51,9 @@ export default Vue.extend({
             },
 
             set (value:String) {
-                if(this.value != ''){
-                    this.$emit('input',value);
-                }else{
-                    this.$emit('input', this.title);
-                }
+                this.$emit('input',value);
             }
         }
-    }
+    },
 })
 </script>

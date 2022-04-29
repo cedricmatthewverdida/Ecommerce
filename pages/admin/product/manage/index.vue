@@ -20,8 +20,10 @@
             <ProductDetail v-if="currentStep == 0"/>
 
             <div slot="footer">
-                <button class="btn btn-primary" @click="nextStep">Next</button>
-                <button class="btn btn-primary" @click="previousStep">Previous</button>
+                <button class="btn btn-primary" @click="nextStep">
+                    {{ currentStep != 3 ? 'Next' : 'Create Product' }}
+                </button>
+                <button v-if="currentStep > 0" class="btn btn-primary" @click="previousStep">Previous</button>
             </div>
 
         </Card>

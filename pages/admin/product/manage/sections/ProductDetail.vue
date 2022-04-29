@@ -3,16 +3,17 @@
         <Card
             title='Image, Video, Audio, or 3D Model'
             subtitle= 'File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV, OGG, GLB, GLTF. Max size: 100 MB'
-            styles='mt-3 w-96'
+            styles='mt-3 md:w-96'
         >
-            <ImageUpload/>
+            <ImageUpload v-model="productimageData"/>
         </Card>
 
         <Card
             title='Collection'
-            subtitle="This is the collection where your item will appear."
-            styles='mt-1'
+            subtitle="Provide an image (PNG, JPG, or GIF) for this collection"
+            styles='mt-1 md:w-96'
         >
+            <MultipleUpload v-model="productimagecollectionData"/>
         </Card>
 
         <Card
@@ -58,6 +59,7 @@ import ImageUpload from '../components/ImageUpload.vue';
 import Card from '@/components/Card/Card.vue';
 import Input from '@/components/Input/TextField.vue';
 import Select from '@/components/Input/Select.vue';
+import MultipleUpload from '../components/MultipleUpload.vue';
 import { mapActions, mapGetters } from 'vuex';
 export default Vue.extend({
     components: {
@@ -65,25 +67,46 @@ export default Vue.extend({
         Card,
         Input,
         Select,
+        MultipleUpload
     },
 
     computed:{
 
         ...mapGetters(
             {
-                category: 'manage/category',
+                productcategory: 'manage/productcategory',
                 productname: 'manage/productname',
                 productdesc: 'manage/productdesc',
                 getCategories: 'ProductCategory/getCategories',
+                productimage: 'manage/productimage',
+                productimagecollection: 'manage/productimagecollection',
             },
         ),
 
+        productimageData: {
+            get() {
+                return this.productimage;
+            },
+            set(value) {
+                this.setProductImage(value);
+            },
+        },
+
+        productimagecollectionData: {
+            get() {
+                return this.productimagecollection;
+            },
+            set(value) {
+                this.setProductImageCollection(value);
+            },
+        },
+
         categoryData: {
             get () {
-                return this.category;
+                return this.productcategory;
             },
             set (value) {
-                this.setCategory(value);
+                this.setProductCategory(value);
             }
         },
 
@@ -110,8 +133,10 @@ export default Vue.extend({
 
     methods:{
         ...mapActions({
-            setCategory: 'manage/setCategory',
+            setProductCategory: 'manage/setProductCategory',
             setProductName: 'manage/setProductName',
+            setProductImage: 'manage/setProductImage',
+            setProductImageCollection: 'manage/setProductImageCollection',
             setProductDesc: 'manage/setProductDesc',
             fetchCategories: 'ProductCategory/fetchCategories',
         }),
