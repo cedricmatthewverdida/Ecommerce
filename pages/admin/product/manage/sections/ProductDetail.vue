@@ -9,16 +9,16 @@
         </Card>
 
         <Card
-            title='Collection'
-            subtitle="Provide an image (PNG, JPG, or GIF) for this collection"
+            title='More Photos'
+            subtitle="Provide an image (PNG, JPG, or GIF)"
             styles='mt-1 md:w-96'
         >
             <MultipleUpload v-model="productimagecollectionData"/>
         </Card>
 
         <Card
-            title='Category'
-            subtitle='Product Category'
+            title='Type'
+            subtitle='Product Type'
             styles='mt-1'
         >
             <Select
@@ -54,7 +54,7 @@
 
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
+import Vue from 'vue';
 import ImageUpload from '../components/ImageUpload.vue';
 import Card from '@/components/Card/Card.vue';
 import Input from '@/components/Input/TextField.vue';
@@ -144,8 +144,6 @@ export default Vue.extend({
         }),
         
     },
-
-    
 
     mounted(){
         this.fetchCategories();

@@ -17,10 +17,13 @@
                 </li>
             </ul>
 
-            <ProductDetail v-if="currentStep == 0"/>
+            <ProductDetail v-if="currentStep === 0"/>
+
+            <ProductProperty v-if="currentStep === 1"/>
+            
 
             <div slot="footer">
-                <button class="btn btn-primary" @click="nextStep">
+                <button class="btn btn-primary" :disabled="validateDetail" @click="nextStep">
                     {{ currentStep != 3 ? 'Next' : 'Create Product' }}
                 </button>
                 <button v-if="currentStep > 0" class="btn btn-primary" @click="previousStep">Previous</button>
@@ -35,18 +38,20 @@
 import Vue from 'vue';
 import Card from '@/components/Card/Card.vue';
 import ProductDetail from './sections/ProductDetail.vue';
+import ProductProperty from './sections/ProductProperty.vue';
+import { mapGetters } from 'vuex';
 export default Vue.extend({
     layout: 'admin',
     components: {
         Card,
-        ProductDetail
+        ProductDetail,
+        ProductProperty
     },
     data () {
         return {
             currentStep: 0 ,
             steps:[
                 'Detail',
-                'Property',
                 'Stock / Availability',
                 'Pricing'
             ] as string[]
@@ -54,9 +59,13 @@ export default Vue.extend({
     },
 
     computed:{
+        
         stepIndicator (): string {
             return this.steps[this.currentStep];
-        }
+        },
+        ...mapGetters({
+            validateDetail: 'manage/validateDetail',
+        })
     },
 
     methods:{

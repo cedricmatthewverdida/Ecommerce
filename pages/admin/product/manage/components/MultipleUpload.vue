@@ -7,7 +7,7 @@
                 <div 
                 v-for="(img,key) in imageUrl"
                 :key="key">
-                    <img :src="img" class="object-fill h-12 w-12 rounded" alt="">
+                    <img :src="img" class="object-fill h-16 w-24 rounded" alt="">
                 </div>
                 </div>
                 <input @change="onFileChange" type="file" class="hidden" multiple>
@@ -18,7 +18,8 @@
 
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
+import { mapGetters } from 'vuex';
 export default Vue.extend({
 
     data () {
@@ -30,17 +31,31 @@ export default Vue.extend({
 
     methods: {
         onFileChange(e) {
-            this.imageUrl = []
-            if(e.target.files.length > 0) {
-                for(let i = 0; i < e.target.files.length; i++) {
-                    this.image.push(e.target.files[i])
-                    this.imageUrl.push(URL.createObjectURL(e.target.files[i]))
-                }
-            }else{
-                this.image = []
-                this.imageUrl = []
-            }
+            // this.imageUrl = []
+            // if(e.target.files.length > 0) {
+            //     for(let i = 0; i < e.target.files.length; i++) {
+            //         this.image.push(e.target.files[i])
+            //         this.imageUrl.push(URL.createObjectURL(e.target.files[i]))
+            //     }
+            // }else{
+            //     this.image = []
+            //     this.imageUrl = []
+            // }
+            const file = e.target.files[0]
+            this.$emit('input', file)
         },
+    },
+
+    computed: {
+
+        ...mapGetters({
+            getProductImageCollection: 'manage/getProductImageCollection',
+        }),
+
+        display : function (){
+           return URL.createObjectURL(this.getProductImage);
+        }
+        
     },
 
     watch: {

@@ -16,6 +16,20 @@ export const getters: GetterTree<RootState, RootState> = {
   getProductCategory: state => state.productcategory,
   getProductName: state => state.productname,
   getProductDesc: state => state.productdesc,
+
+  validateDetail: (state) => {
+    if (
+      state.productcategory === '' ||
+      state.productname === '' ||
+      state.productdesc === '' ||
+      state.productimage.length === 0
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }
 
 export const mutations: MutationTree<RootState> = {
