@@ -11,11 +11,11 @@ export const state = () => ({
 export type RootState = ReturnType<typeof state>
 
 export const getters: GetterTree<RootState, RootState> = {
-  productimage: state => state.productimage,
-  productimagecollection: state => state.productimagecollection,
-  productcategory: state => state.productcategory,
-  productname: state => state.productname,
-  productdesc: state => state.productdesc,
+  getProductImage: state => state.productimage,
+  getProductImageCollection: state => state.productimagecollection,
+  getProductCategory: state => state.productcategory,
+  getProductName: state => state.productname,
+  getProductDesc: state => state.productdesc,
 }
 
 export const mutations: MutationTree<RootState> = {

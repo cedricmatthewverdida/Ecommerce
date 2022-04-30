@@ -46,7 +46,7 @@
             subtitle='The description will be included on the items detail page underneath its image. Markdown syntax is supported.'
             styles='mt-1'
         >
-            <textarea class="textarea textarea-bordered" placeholder="Bio"></textarea>
+            <textarea v-model="productdescData" class="textarea textarea-bordered" placeholder="Bio"></textarea>
         </Card>
 
     </div>
@@ -54,7 +54,7 @@
 
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 import ImageUpload from '../components/ImageUpload.vue';
 import Card from '@/components/Card/Card.vue';
 import Input from '@/components/Input/TextField.vue';
@@ -62,6 +62,7 @@ import Select from '@/components/Input/Select.vue';
 import MultipleUpload from '../components/MultipleUpload.vue';
 import { mapActions, mapGetters } from 'vuex';
 export default Vue.extend({
+    
     components: {
         ImageUpload,
         Card,
@@ -74,18 +75,18 @@ export default Vue.extend({
 
         ...mapGetters(
             {
-                productcategory: 'manage/productcategory',
-                productname: 'manage/productname',
-                productdesc: 'manage/productdesc',
+                getProductCategory: 'manage/getProductCategory',
+                getProductName: 'manage/getProductName',
+                getProductDesc: 'manage/getProductDesc',
                 getCategories: 'ProductCategory/getCategories',
-                productimage: 'manage/productimage',
-                productimagecollection: 'manage/productimagecollection',
+                getProductImage: 'manage/getProductImage',
+                getProductImageCollection: 'manage/getProductImageCollection',
             },
         ),
 
         productimageData: {
             get() {
-                return this.productimage;
+                return this.getProductImage;
             },
             set(value) {
                 this.setProductImage(value);
@@ -94,7 +95,7 @@ export default Vue.extend({
 
         productimagecollectionData: {
             get() {
-                return this.productimagecollection;
+                return this.getProductImageCollection;
             },
             set(value) {
                 this.setProductImageCollection(value);
@@ -103,7 +104,7 @@ export default Vue.extend({
 
         categoryData: {
             get () {
-                return this.productcategory;
+                return this.getProductCategory;
             },
             set (value) {
                 this.setProductCategory(value);
@@ -112,7 +113,7 @@ export default Vue.extend({
 
         productnameData: {
             get () {
-                return this.productname;
+                return this.getProductName;
             },
             set (value) {
                 this.setProductName(value);
@@ -121,7 +122,7 @@ export default Vue.extend({
 
         productdescData: {
             get () {
-                return this.productdesc;
+                return this.getProductDesc;
             },
             set (value) {
                 this.setProductDesc(value);
@@ -132,6 +133,7 @@ export default Vue.extend({
     },
 
     methods:{
+        
         ...mapActions({
             setProductCategory: 'manage/setProductCategory',
             setProductName: 'manage/setProductName',
