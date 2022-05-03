@@ -1,8 +1,8 @@
 import { GetterTree, ActionTree, MutationTree } from 'vuex';
 
 export const state = () => ({
-  productimage: [],
-  productimagecollection: [],
+  productimage: <any>[],
+  productimagecollection: <Object>[],
   productcategory: '' as string,
   productname: '' as string,
   productdesc: '' as string,

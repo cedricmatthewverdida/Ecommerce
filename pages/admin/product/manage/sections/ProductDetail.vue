@@ -21,13 +21,18 @@
             subtitle='Product Type'
             styles='mt-1'
         >
-            <Select
+            <!-- <Select
             :items="getCategories"
             title="Category"
             display="attributes.name"
             v-model="categoryData"
-            />
+            /> -->
+
+            <ComboBox class="relative z-50"/>
+
         </Card>
+
+        
 
         <Card
             title='Name'
@@ -60,6 +65,7 @@ import Card from '@/components/Card/Card.vue';
 import Input from '@/components/Input/TextField.vue';
 import Select from '@/components/Input/Select.vue';
 import MultipleUpload from '../components/MultipleUpload.vue';
+import ComboBox from '@/components/Input/ComboBox.vue';
 import { mapActions, mapGetters } from 'vuex';
 export default Vue.extend({
     
@@ -68,7 +74,8 @@ export default Vue.extend({
         Card,
         Input,
         Select,
-        MultipleUpload
+        MultipleUpload,
+        ComboBox
     },
 
     computed:{

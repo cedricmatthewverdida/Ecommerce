@@ -1,11 +1,10 @@
 <template>
     <div class="input-group">
         <select class="select select-bordered" v-model="input">
-
             <option disabled selected>
                 {{title}}
             </option>
-
+            
             <option
             v-for="(item,key) in items"
             :key="key"
