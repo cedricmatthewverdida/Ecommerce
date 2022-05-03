@@ -24,8 +24,19 @@ export default Vue.extend({
     methods: {
 
         onFileChange(e) {
-            const file = e.target.files[0]
-            this.$emit('input', file)
+            if (e.target.files && e.target.files[0]) {
+                const file = e.target.files[0];
+                if (file.type.match('image.*')) {
+                    const file = e.target.files[0]
+                    this.$emit('input', file)
+                } else {
+                    this.$notify({
+                        title: " Failed to upload ",
+                        text: "Only image files are allowed",
+                        type: 'error',
+                    });
+                }
+            }
         },
 
     },
