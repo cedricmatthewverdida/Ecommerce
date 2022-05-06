@@ -3,7 +3,7 @@
         <div class="card-body">
             <h2 class="card-title" v-if="title != undefined">{{title}}</h2>
             <small v-if="subtitle != undefined">{{subtitle}}</small>
-            <slot/>
+                <slot/>
             <div class="card-actions">
                 <slot name="footer"/>
             </div>

@@ -57,9 +57,10 @@ export default {
     siteTitle: process.env.SITE_TITLE || 'Sammy Store',
     serverURL: process.env.SERVER_URL || 'https://7oebgpnp43rq.usemoralis.com:2053/server',
     appID: process.env.APP_ID || '36YXbnPgUbRpv3AeiFOlMPVGum3bZQekBJbKLi6H'
-  }
+  },
 
-  
+  srr:true,
+  target: 'server',
   
 }
 

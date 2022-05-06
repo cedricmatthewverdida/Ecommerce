@@ -28,7 +28,7 @@
             v-model="categoryData"
             /> -->
 
-            <ComboBox class="relative z-50"/>
+            <ComboBox/>
 
         </Card>
 

@@ -9,6 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/vercel-builder": "^0.22.1",
     "@walletconnect/web3-provider": "^1.7.7",
     "@web3auth/web3auth": "^0.9.0",
     "aos": "^2.3.4",
