@@ -3,7 +3,7 @@ import { GetterTree, ActionTree, MutationTree } from 'vuex';
 export const state = () => ({
   productimage: <any>[],
   productimagecollection: <Object>[],
-  productcategory: '' as string,
+  productcategory: <Object>[],
   productname: '' as string,
   productdesc: '' as string,
 });

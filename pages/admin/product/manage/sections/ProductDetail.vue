@@ -1,5 +1,8 @@
 <template>
-    <div>
+    <div class="mt-10">
+        
+        
+
         <Card
             title='Image, Video, Audio, or 3D Model'
             subtitle= 'File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV, OGG, GLB, GLTF. Max size: 100 MB'
@@ -16,23 +19,17 @@
             <MultipleUpload v-model="productimagecollectionData"/>
         </Card>
 
-        <Card
-            title='Type'
-            subtitle='Product Type'
-            styles='mt-1'
-        >
-            <!-- <Select
-            :items="getCategories"
-            title="Category"
-            display="attributes.name"
-            v-model="categoryData"
-            /> -->
-
-            <ComboBox/>
-
-        </Card>
-
-        
+        <div class="px-8 mt-1">
+            <h1 class="card-title"> Type</h1>
+            <small>Click to select type or create type</small> <br>
+            <ComboBox 
+                title="Category"
+                display="attributes.name"
+                v-model="category"
+                :items="getCategories"
+                @create="createCategory(categoryData)"
+            />
+        </div>
 
         <Card
             title='Name'
@@ -88,6 +85,7 @@ export default Vue.extend({
                 getCategories: 'ProductCategory/getCategories',
                 getProductImage: 'manage/getProductImage',
                 getProductImageCollection: 'manage/getProductImageCollection',
+                getCategory : 'ProductCategory/getCategory'
             },
         ),
 
@@ -136,6 +134,14 @@ export default Vue.extend({
             }
         },
 
+        category: {
+            get () {
+                return this.getCategory;
+            },
+            set (value) {
+                this.setCategory(value);
+            }
+        }
 
     },
 
@@ -148,6 +154,8 @@ export default Vue.extend({
             setProductImageCollection: 'manage/setProductImageCollection',
             setProductDesc: 'manage/setProductDesc',
             fetchCategories: 'ProductCategory/fetchCategories',
+            createCategory: 'ProductCategory/createCategory',
+            setCategory: 'ProductCategory/setCategory'
         }),
         
     },
